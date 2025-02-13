@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - Osprey Express</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-title">OSPREY EXPRESS</div>
+        <div class="logo">
+            <img src="NEW LOGO.jpeg" alt="OSPREY EXPRESS">
+        </div>
+        <div class="menu">
+            <a href="MAIN.html">HOME</a>
+            
+            <a href="about Us.html">ABOUT US</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+    </nav>
+
+    <section class="confirmation">
+        <div class="confirmation-container">
+            <h2>MESSAGE SENT!</h2>
+            <p>Thank you for contacting us,we will reach you as soon as possible  </p>
+
+           
+
+            <button onclick="window.location.href='MAIN.html'">Go to Home Page</button>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 24/Z Aviation Street, Accra, Ghana</p>
+                <p><i class="fas fa-phone"></i> +233 24 519 6351</p>
+                <p><i class="fas fa-phone"></i> +233 20 804 2166</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about Us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 Osprey Express. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+        const bookingDetails = JSON.parse(sessionStorage.getItem('bookingDetails'));
+
+        
+        document.getElementById('confirm-name').textContent = bookingDetails.name;
+        document.getElementById('confirm-email').textContent = bookingDetails.email;
+        document.getElementById('confirm-phone').textContent = bookingDetails.phone;
+        document.getElementById('confirm-card').textContent = bookingDetails.cardNumber;
+        document.getElementById('confirm-expiry').textContent = bookingDetails.expiryDate;
+        document.getElementById('confirm-cvv').textContent = bookingDetails.cvv;
+    </script>
+
+</body>
+</html>
+
+<style>
+    
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, white, red, white);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, white, white, red);
+    padding: 15px 30px;
+}
+
+.nav-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+nav .logo img {
+    height: 70px;
+    width: auto;
+    margin-right: 500px;
+}
+
+nav .menu a {
+    color: black;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav .menu a:hover {
+    color: black;
+}
+
+
+.confirmation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    
+}
+
+.confirmation-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-container h2 {
+    font-size: 24px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.confirmation-container p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.booking-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left;
+    color: #333;
+}
+
+.booking-details strong {
+    font-weight: bold;
+}
+
+.confirmation-container button {
+    padding: 14px 25px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 20px;
+}
+
+.confirmation-container button:hover {
+    background-color: darkred;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .confirmation-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
+footer {
+    background-color: #222;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+
+.footer-section p,
+.footer-section ul {
+    font-size: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: red;
+}
+
+
+.footer-bottom {
+    background-color: #111;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+</style>

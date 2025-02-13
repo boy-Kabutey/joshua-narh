@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osprey Express</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    
+    <nav>
+        <div class="nav-title">OSPREY EXPRESS</div>
+        <div class="logo" >
+            <img src="NEW LOGO.jpeg" alt="OSPREY EXPRESS"  >
+        </div>
+        <div class="menu">
+          
+            
+            <a href="about Us.html">ABOUT US</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        
+    </nav>
+
+    
+    <section class="hero">
+        <div class="slideshow">
+            <img src="the-majestic-view-of-independence-square-in-accra-ghana-1es637ofsnln2qnf.jpg" class="slide active">
+            <img src="gran-via-madrid-spain-gran-via-madrid-ispaniia-ulitsa-zdanii.jpg" class="slide">
+            <img src="London_1 bridge.jpg" class="slide">
+            
+        </div>
+    </section>
+
+    
+    <section class="booking-form">
+        <div class="tabs">
+            
+        </div>
+
+        <form action="search flight.html" method="get">
+            <div class="form-group">
+                <label><i class="fas fa-plane-departure"></i> Route</label>
+                <input type="text" placeholder="Origin" required>
+                <input type="text" placeholder="Destination" required>
+            </div>
+
+            <div class="form-group">
+                <label for="departure"><i class="fas fa-plane-departure"></i> Departure Date</label>
+                <input type="date" id="departure" name="departure" required>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival"><i class="fas fa-plane-arrival"></i> Arrival Date</label>
+                <input type="date" id="arrival" name="arrival" required>
+            </div>
+
+            <div class="form-group">
+                <label><i class="fas fa-users"></i> Passengers</label>
+                <input type="number" min="1" value="1">
+            </div>
+
+            <button type="submit">Search Flight</button>
+            
+        </form>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 24/Z Aviation Street, Accra, Ghana</p>
+                <p><i class="fas fa-phone"></i> +233 24 519 6351</p>
+                <p><i class="fas fa-phone"></i> +233 20 804 2166</p>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about Us.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                   
+                </ul>
+            </div>
+    
+           
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 Osprey Express. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+
+    <script>
+       
+        let slides = document.querySelectorAll(".slide");
+        let index = 0;
+
+        function showSlides() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove("active");
+                if (i === index) slide.classList.add("active");
+            });
+            index = (index + 1) % slides.length;
+        }
+        setInterval(showSlides, 3000);
+
+        
+        document.getElementById("departure").addEventListener("change", function () {
+            let departureDate = this.value;
+            document.getElementById("arrival").setAttribute("min", departureDate);
+        });
+    </script>
+
+</body>
+</html>
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, white, red, white);
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, white, white, red);
+    padding: 15px 30px;
+    border-radius: 10px; 
+}
+
+.nav-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; 
+}
+
+nav .logo img {
+    height: 50px; 
+    width: auto;
+    margin-right: 650px; 
+}
+
+nav .menu {
+    display: flex;
+    gap: 20px; 
+}
+
+nav .menu a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav .menu a:hover {
+    color: black;
+}
+
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav .logo {
+        margin: 10px 0;
+    }
+
+    nav .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.hero .slideshow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hero .slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.hero .slide.active {
+    opacity: 1;
+}
+
+
+.booking-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.booking-form .form-group {
+    flex: 1;
+    min-width: 300px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.booking-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.booking-form button {
+    padding: 14px 25px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.booking-form button:hover {
+    background-color: darkred;
+}
+
+
+@media (max-width: 768px) {
+    .booking-form form {
+        flex-direction: column;
+    }
+
+    .booking-form .form-group {
+        width: 100%;
+    }
+
+    .booking-form button {
+        width: 100%;
+    }
+}
+footer {
+    background-color: #222;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+
+
+.footer-section p,
+.footer-section ul {
+    font-size: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: red;
+}
+
+
+.footer-bottom {
+    background-color: #111;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+
+</style>
